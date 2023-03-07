@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.elbanic.awsregion</string>
+	<string>uk.co.danstreeter.alfred.aws_region_codes</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -23,13 +23,13 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>elbanic</string>
+	<string>elbanic, Dan Streeter</string>
 	<key>description</key>
 	<string>View and Copy AWS region codes</string>
 	<key>disabled</key>
-	<true/>
+	<false/>
 	<key>name</key>
-	<string>AWS Region Codes-v1.2</string>
+	<string>AWS Region Codes-v2.0</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -39,6 +39,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -67,7 +69,7 @@
 				<key>keyword</key>
 				<string>region</string>
 				<key>queuedelaycustom</key>
-				<integer>1</integer>
+				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
 				<false/>
 				<key>queuedelaymode</key>
@@ -75,66 +77,19 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Finding processes...</string>
+				<string>Finding regions...</string>
 				<key>script</key>
-				<string>#! /usr/local/bin/python
-# -*- coding:utf-8 -*-
-
-dic = {"us-east-1" : "US, IAD, N. Virginia",
-    "us-east-2" : "US, CMH, Ohio",
-    "us-west-1" : "US, SFO, N. California",
-    "us-west-2" : "US, PDX, Oregon",
-    "ca-central-1" : "Canada, YUL, Central",
-    "eu-central-1" : "EU, FRA, Frankfurt",
-    "eu-west-1" : "EU, DUB, Ireland",
-    "eu-west-2" : "EU, LHR, London",
-    "eu-west-3" : "EU, CDG, Paris",
-    "eu-north-1" : "EU, ARN, Stockholm",
-    "eu-south-1" : "EU, MXP, Milan",
-    "ap-east-1" : "Asia, HKG, Hongkong",
-    "ap-northeast-1" : "Asia, NRT, Tokyo",
-    "ap-northeast-2" : "Asia, ICN, Seoul",
-    "ap-northeast-3" : "Asia, KIX, Osaka",
-    "ap-southeast-1" : "Asia, SIN, Singapore",
-    "ap-southeast-2" : "Asia, SYD, Sydney",
-    "ap-south-1" : "Asia, BOM, Mumbai",
-    "sa-east-1" : "South America, GRU, Sao Paulo",
-    "cn-north-1" : "China, BJS, Beijing",
-    "cn-northwest-1" : "China, ZHY, Ningxia",
-    "af-south-1" : "Africa, CPT, Cape Town",
-    "me-south-1" : "Middle East, BAH, Bahrain"}
-
-xmlString = """&lt;?xml version="1.0"?&gt; &lt;items&gt;"""
-cnt = 0
-for i in dic:
-    if "{query}".lower() in str(dic[i]).lower() or "{query}".lower() in str(i).lower():
-		cnt += 1
-		xmlString += """&lt;item uid="desktop" arg="%s" valid="YES" autocomplete="%s" type="file"&gt;
-				&lt;title&gt;%s&lt;/title&gt;
-			&lt;/item&gt;""" % (i + " : " + dic[i], i, i  + " : " + dic[i])
-
-if "{query}" == "all":
-	for i in dic:
-	    xmlString += """&lt;item uid="desktop" arg="%s" valid="YES" autocomplete="%s" type="file"&gt;
-				&lt;title&gt;%s&lt;/title&gt;
-			&lt;/item&gt;""" % (i + " : " + dic[i], i, i  + " : " + dic[i])
-elif cnt == 0:
-    xmlString += """&lt;item uid="desktop" arg="no result" valid="YES" autocomplete="No Result" type="file"&gt;
-				&lt;title&gt;No Result&lt;/title&gt;
-			&lt;/item&gt;"""
-
-xmlString += """&lt;/items&gt;"""
-print xmlString</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
 				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>main.py</string>
 				<key>subtext</key>
-				<string>Start typing a process name...</string>
+				<string>Start typing a region name or code...</string>
 				<key>title</key>
 				<string>AWS Region Codes</string>
 				<key>type</key>
-				<integer>3</integer>
+				<integer>8</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
@@ -154,23 +109,25 @@ Text search method : substring match</string>
 		<key>029358E9-1301-4413-BB4D-06D5362BD4DC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>555</integer>
+			<real>555</real>
 			<key>ypos</key>
-			<integer>170</integer>
+			<real>170</real>
 		</dict>
 		<key>2A751056-87B7-4408-90D6-B868021760CE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<real>300</real>
 			<key>ypos</key>
 			<real>170</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
 	<string>1.2</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://danstreeter.co.uk</string>
 </dict>
 </plist>

@@ -13,13 +13,17 @@ Text search method : substring match
 
 1. type `region`
 
-![screenshot](./example/awsregioncode-keyword.png)
+![screenshot](./example/awsregioncode-keyword.jpg)
 
 2. type `region eu`
 
-![screenshot](./example/awsregioncode-eu.png)
+![screenshot](./example/awsregioncode-eu.jpg)
 
 3. type `region south`
 
-![screenshot](./example/awsregioncode-south.png)
+![screenshot](./example/awsregioncode-south.jpg)
 
+## Credits
+
+Credit to https://github.com/elbanic/alfred.awsregion for the original version of this workflow.
+As of v2.0 I have upgraded it to Python3 and updated the region list as of March 2023
